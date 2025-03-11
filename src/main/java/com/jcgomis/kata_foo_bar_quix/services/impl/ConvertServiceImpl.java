@@ -1,7 +1,7 @@
-package services.impl;
+package com.jcgomis.kata_foo_bar_quix.services.impl;
 
 import org.springframework.stereotype.Service;
-import services.ConvertService;
+import com.jcgomis.kata_foo_bar_quix.services.ConvertService;
 
 @Service
 public class ConvertServiceImpl implements ConvertService {
@@ -12,7 +12,7 @@ public class ConvertServiceImpl implements ConvertService {
         }
 
         StringBuilder result = new StringBuilder();
-
+ // Régle de 3 et 5
         if(number % 3 == 0){
             result.append("FOO");
         }
