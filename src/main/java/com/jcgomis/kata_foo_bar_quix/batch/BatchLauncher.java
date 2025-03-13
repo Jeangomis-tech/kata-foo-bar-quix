@@ -21,9 +21,6 @@ public class BatchLauncher {
     @Bean
     public CommandLineRunner run(){
         return args -> {
-            //if(args.length > 0 && args[0].equals("--batch")){
-
-           // }
             JobParameters jobParameters = new JobParametersBuilder()
                     .addLong("time", System.currentTimeMillis())
                     .toJobParameters();

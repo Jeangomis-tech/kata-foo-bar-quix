@@ -23,6 +23,7 @@ import org.springframework.batch.item.file.transform.PassThroughLineAggregator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -34,9 +35,9 @@ import javax.sql.DataSource;
 @EnableBatchProcessing
 public class BatchConfig {
 
-    //@Value("classpath:" + "input.txt")
+    @Value("classpath:" + "input.txt")
 
-   // private Resource fileInput;
+    private String fileInput;
 
 
     @Bean
@@ -64,7 +65,7 @@ public class BatchConfig {
     }
     @Bean
     public FlatFileItemReader<String>reader(){
-        var fileInput= new FileSystemResource("input.txt");
+        var fileInput= new ClassPathResource("input.txt");
         return new FlatFileItemReaderBuilder<String>()
                 .name("fooBarQuixItemReader")
                 .resource(fileInput)
